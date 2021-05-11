@@ -25,7 +25,7 @@ vector<string> ezSplit(string delimiter, string s)
 }
 string ezLower(string s)
 {
-  char str[s.length];
+  string str;
   for (int i = 0; i <= str.size(); i++)
   {
     str[i] = tolower(s[i]);
@@ -35,7 +35,7 @@ string ezLower(string s)
 }
 string ezUpper(string s)
 {
-   char str[s.length];
+   string str;
   for (int i = 0; i <= str.size(); i++)
   {
     str[i] = toupper(s[i]);
