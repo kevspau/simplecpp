@@ -6,14 +6,13 @@
 #include <thread>
 #include <chrono>
 #include <random>
-using namespace std;
 
 
-vector<string> ezSplit(string delimiter, string s)
+std::vector<string> ezSplit(std::string delimiter, std::string s)
 {
-  vector<string> ret(500, "");
-  int thing = 0;
-  while ((int x = s.find(delimiter)) != string::npos)
+  std::vector<string> ret(500, "");
+  std::int thing = 0;
+  while ((std::int x = s.find(delimiter)) != std::string::npos)
   {
     ret[thing] = s.substr(0, x)
     thing++;
@@ -23,35 +22,33 @@ vector<string> ezSplit(string delimiter, string s)
   ret.shrink_to_fit();
   return ret; 
 }
-string ezLower(string s)
+std::string ezLower(std::string s)
 {
-  string str;
-  for (int i = 0; i <= str.size(); i++)
+  std::string str;
+  for (std::int i = 0; i <= str.size(); i++)
   {
-    str[i] = tolower(s[i]);
+    str[i] = std::tolower(s[i]);
   }
-  string ret = to_string(str);
   return str;
 }
-string ezUpper(string s)
+string ezUpper(std::string s)
 {
-   string str;
-  for (int i = 0; i <= str.size(); i++)
+   std::string str;
+  for (std::int i = 0; i <= str.size(); i++)
   {
     str[i] = toupper(s[i]);
   }
-  string ret = to_string(str);
   return str;
 }
-void ezDelay(int milli)
+std::void ezDelay(std::int milli)
 {
-  thread::this_thread::sleep_for(chrono::milliseconds(milli));
+  std::thread::this_thread::sleep_for(chrono::milliseconds(milli));
 }
-int ezRandom(int min, int max)
+std::int ezRandom(std::int min, std::int max)
 {
-  random_device rd;
-  mt19937 mt(rd);
-  uniform_int_distribution<int> uid(min, max);
+  std::random_device rd;
+  std::mt19937 mt(rd);
+  std::uniform_int_distribution<int> uid(min, max);
   return uid(mt);
 }
 
