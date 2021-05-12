@@ -11,8 +11,8 @@
 std::vector<string> ezSplit(std::string delimiter, std::string s)
 {
   std::vector<string> ret(500, "");
-  std::int thing = 0;
-  while ((std::int x = s.find(delimiter)) != std::string::npos)
+  int thing = 0;
+  while ((int x = s.find(delimiter)) != std::string::npos)
   {
     ret[thing] = s.substr(0, x)
     thing++;
@@ -25,7 +25,7 @@ std::vector<string> ezSplit(std::string delimiter, std::string s)
 std::string ezLower(std::string s)
 {
   std::string str;
-  for (std::int i = 0; i <= str.size(); i++)
+  for (int i = 0; i <= str.size(); i++)
   {
     str[i] = std::tolower(s[i]);
   }
@@ -34,17 +34,17 @@ std::string ezLower(std::string s)
 string ezUpper(std::string s)
 {
    std::string str;
-  for (std::int i = 0; i <= str.size(); i++)
+  for (int i = 0; i <= str.size(); i++)
   {
     str[i] = toupper(s[i]);
   }
   return str;
 }
-std::void ezDelay(std::int milli)
+std::void ezDelay(int milli)
 {
   std::thread::this_thread::sleep_for(chrono::milliseconds(milli));
 }
-std::int ezRandom(std::int min, std::int max)
+int ezRandom(int min, std::int max)
 {
   std::random_device rd;
   std::mt19937 mt(rd);
