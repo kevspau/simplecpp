@@ -8,13 +8,14 @@
 #include <random>
 
 
-std::vector<string> ezSplit(std::string delimiter, std::string s)
+std::vector<std::string> ezSplit(std::string delimiter, std::string s)
 {
-  std::vector<string> ret(500, "");
+  std::vector<std::string> ret(500, "");
   int thing = 0;
-  while ((int x = s.find(delimiter)) != std::string::npos)
+  int x;
+  while ((x = s.find(delimiter)) != std::string::npos)
   {
-    ret[thing] = s.substr(0, x)
+    ret[thing] = s.substr(0, x);
     thing++;
     s.erase(0, x + delimiter.length());
   }
@@ -31,7 +32,7 @@ std::string ezLower(std::string s)
   }
   return str;
 }
-string ezUpper(std::string s)
+std::string ezUpper(std::string s)
 {
    std::string str;
   for (int i = 0; i <= str.size(); i++)
@@ -40,16 +41,14 @@ string ezUpper(std::string s)
   }
   return str;
 }
-std::void ezDelay(int milli)
+void ezDelay(int milli)
 {
-  std::thread::this_thread::sleep_for(chrono::milliseconds(milli));
+  std::this_thread::sleep_for(std::chrono::milliseconds(milli));
 }
-int ezRandom(int min, std::int max)
+int ezRandom(int min, int max)
 {
   std::random_device rd;
-  std::mt19937 mt(rd);
+  std::mt19937 mt(rd());
   std::uniform_int_distribution<int> uid(min, max);
   return uid(mt);
 }
-
-
